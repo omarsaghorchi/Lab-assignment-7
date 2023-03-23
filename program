@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    int arr[] = {97, 16, 45, 63, 13, 22, 7, 58, 72};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int swaps[n];
+    int temp, i, j, count;
+    
+    // Initialize swaps array to zero
+    for (i = 0; i < n; i++) {
+        swaps[i] = 0;
+    }
+    
+    // Bubble Sort algorithm
+    
+    for (i = 0; i < n-1; i++) {
+        for (j = 0; j < n-i-1; j++) {
+            if (arr[j] > arr[j+1]) {
+                // Swap elements and update swaps array
+                
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+                swaps[j]++;
+            }
+        }
+    }
+    
+    // Print swaps array
+    for (i = 0; i < n; i++) {
+        printf("Number of swaps for index %d: %d\n", i, swaps[i]);
+    }
+    
+    return 0;
+}
